@@ -17,7 +17,10 @@ public Location getNextLoc(int row, int col)
 {
     Location b = new Location(row+1, col);
     Location c = new Location(row, col+1);
-    if (grid[b.getRow()][b.getCol()])
+    if (grid[b.getRow()][b.getCol()] < grid[c.getRow()][c.getCol()]) {
+        return b;
+    }
+    return c;
 }
 /**
 * Computes and returns the sum of all values on a path through grid, as described in
@@ -26,6 +29,15 @@ public Location getNextLoc(int row, int col)
 * row and col do not specify the element in the last row and last column of grid.
 */
 public int sumPath(int row, int col)
-{ /* to be implemented in part (b) */ }
+{
+    int sum = 0;
+    int dis = (4-row)+(4-col);
+    Location a = new Location(row, col);
+    for (int i = 0; i <= dis; i++) {
+        sum += grid[a.getRow()][a.getCol()];
+        a = getNextLoc(row, col);
+    }
+    return sum;
+}
 // There may be instance variables, constructors, and methods that are not shown.
 }

@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Location a = new Location(0, 0);
-        System.out.println(a.getCol());
-        System.out.println(a.getRow());
+        Location test = new Location(1, 1);
+        GridPath a = new .getNextLoc(1,1);
+        System.out.println(test);
     }
 }
