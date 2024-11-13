@@ -15,8 +15,13 @@ private int[][] grid =
 */
 public Location getNextLoc(int row, int col)
 {
+    if (row < 4) {
+        Location b = new Location(row+1, col);
+    }
     Location b = new Location(row+1, col);
-    Location c = new Location(row, col+1);
+    if (col == 4) {
+        Location c = new Location(row, col+1);
+    }
     if (grid[b.getRow()][b.getCol()] < grid[c.getRow()][c.getCol()]) {
         return b;
     }
