@@ -1,12 +1,11 @@
 public class GridPath
 {
 /** Initialized in the constructor with distinct values that never change */
-private int[][] grid =
-{{12,3,4,13,5},
-{11,21,2,14,16},
-{7,8,9,15,0},
-{10,17,20,19,1},
-{10,22,30,25,6}};
+private int[][] grid;
+
+public GridPath(int[][] grid) {
+    this.grid = grid;
+}
 /**
 * Returns the Location representing a neighbor of the grid element at row and col,
 * as described in part (a)
@@ -15,12 +14,19 @@ private int[][] grid =
 */
 public Location getNextLoc(int row, int col)
 {
+    Location b = new Location(row, col);
+    Location c = new Location(row, col);
     if (row < 4) {
-        Location b = new Location(row+1, col);
+        b = new Location(row+1, col);
+    } else {
+        Location a = new Location(row, col+1);
+        return a;
     }
-    Location b = new Location(row+1, col);
-    if (col == 4) {
-        Location c = new Location(row, col+1);
+    if (col < 4) {
+        c = new Location(row, col+1);
+    } else {
+        Location d = new Location(row+1, col);
+        return d;
     }
     if (grid[b.getRow()][b.getCol()] < grid[c.getRow()][c.getCol()]) {
         return b;
