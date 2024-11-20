@@ -16,6 +16,9 @@ public Location getNextLoc(int row, int col)
 {
     Location b = new Location(row, col);
     Location c = new Location(row, col);
+    if (row == 4 && col == 4) {
+        return b;
+    }
     if (row < 4) {
         b = new Location(row+1, col);
     } else {
@@ -42,11 +45,12 @@ public Location getNextLoc(int row, int col)
 public int sumPath(int row, int col)
 {
     int sum = 0;
-    int dis = (4-row)+(4-col);
     Location a = new Location(row, col);
-    for (int i = 0; i <= dis; i++) {
+    while (row<=4 || col<=4) {
         sum += grid[a.getRow()][a.getCol()];
         a = getNextLoc(row, col);
+        row = a.getRow();
+        col = a.getCol();
     }
     return sum;
 }

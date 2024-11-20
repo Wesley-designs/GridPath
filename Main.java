@@ -10,6 +10,13 @@ public class Main {
         System.out.println(g.getNextLoc(1, 3));
         System.out.println(g.getNextLoc(2, 4));
         System.out.println(g.getNextLoc(4, 3));
-        System.out.println(g.sumPath(1, 1));
+        System.out.println(g.sumPath(4, 4));
+        int[][] grid2 = {{12,30,40,25,5},
+        {11,3,22,15,43},
+        {7,2,9,4,0},
+        {8,33,18,6,1}};
+        GridPath a = new GridPath(grid2);
+        System.out.println(a.getNextLoc(4, 3));
+        System.out.println(a.sumPath(1, 1));
     }
 }
